@@ -1,0 +1,61 @@
+---
+title: Woocommerce Plugin
+description: "Steps to install Woocommerce plugin."
+---
+
+## Download the plugin
+To get started with enabling Anycover on Woocommerce, please download the Anycover plugin package first. [Click here](https://de03r9gaxziou.cloudfront.net/zip/Anycover-WC-Plugin-V1-0-2.zip) to automatically download the zipped file.
+
+## Install the Anycover plugin
+
+1. Log in to your WordPress dashboard: You will need to **log in to the backend** of your WordPress website to install the plugin.
+2. From the WordPress dashboard, navigate to the **Plugins** section on the left-hand side menu.
+3. Once you are in the **Plugins** section, click on the **Add New** button at the top of the page.
+4. On the next page, click on the **Upload Plugin** button and then click on the **Choose File** button. Browse to the location where you saved the downloaded plugin file, select it, and click on the **Install Now** button.
+5. Once the installation is complete, click on the **Activate Plugin** button to activate the WooCommerce plugin.
+6. You will be redirected to the plugin's settings page. Here click **Approve** to give Anycover necessary read/write access to your store.
+7. In the plugins window, you will see a list of your installed plugins, select the WooCommerce Anycover plugin, click the “Activate” button.
+
+That's it! You have successfully uploaded and installed a WooCommerce plugin on your WordPress website.
+
+## Hiding Anycover products from Wordpress search
+To hide Anycover products from Wordpress search as well, go to the **Theme File Editor** in the **Tools section** and add the following code snippet to the bottom of the file:
+
+```php
+    //CUSTOM_SNIPPET
+    // MAKE SURE TO BACKUP YOUR FILE BEFORE ADDING THIS CODE SNIPPET
+
+    add_action( 'pre_get_posts', 'hide_products_from_search' );
+    function hide_products_from_search( $query ) {
+        if ( ! is_admin() && $query->is_search() && $query->is_main_query() ) {
+            $exclude_ids = array(); // create an empty array to store the IDs of the products to be excluded
+            $exclude_word = 'exclude me'; // replace with the word to be excluded from the search results
+
+            // get an array of all the products matching the search query
+            $args = array(
+                'post_type' => 'product',
+                's' => get_search_query(),
+                'posts_per_page' => -1,
+                'fields' => 'ids',
+            );
+            $product_ids = get_posts( $args );
+
+            // loop through the product IDs and check if the title contains the exclude word
+            foreach ( $product_ids as $product_id ) {
+                $product_title = get_the_title( $product_id );
+                if ( strpos( $product_title, $exclude_word ) !== false ) {
+                    $exclude_ids[] = $product_id; // add the product ID to the exclude array
+                }
+            }
+
+            // set the 'post__not_in' parameter to exclude the products matching the exclude pattern
+            if ( ! empty( $exclude_ids ) ) {
+                $query->set( 'post__not_in', $exclude_ids );
+            }
+        }
+    }
+```
+
+You have now successfully installed and activated the Anycover plugin on WooCommerce! We’ll now review your store and apply eligible product protection plans to your product catalog so you can be up and running within 24 hours!
+
+
