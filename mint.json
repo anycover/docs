@@ -39,7 +39,15 @@
     },
     {
       "group": "How and Why",
-      "pages": ["merchant/how-and-why/serial-number-recording"]
+      "pages": [
+          "merchant/how-and-why/serial-number-recording",
+          {
+            "group": "Price point solutions",
+            "pages": [
+              "merchant/how-and-why/price-point-solution/creating-draft-orders"
+            ]
+          }
+      ]
     }
   ],
   "footerSocials": {
