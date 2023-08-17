@@ -46,7 +46,8 @@
             "pages": [
               "merchant/how-and-why/price-point-solution/creating-draft-orders"
             ]
-          }
+          },
+          "merchant/how-and-why/offline-registration"
       ]
     }
   ],
