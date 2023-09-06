@@ -34,25 +34,31 @@
       "pages": ["introduction"]
     }, 
     {
-      "group": "Installation",
+      "group": "Shopify",
       "pages": [
-        "merchant/installation/shopify-plugin", 
-        "merchant/installation/woocommerce-plugin",
-        "merchant/installation/wix-plugin"
+        "merchant/shopify/installation",
+        "merchant/shopify/creating-draft-orders"
       ]
     },
     {
-      "group": "How and Why",
+      "group": "Woocommerce",
+      "pages": [
+        "merchant/woocommerce/installation",
+        "merchant/woocommerce/hide-products-from-search"
+      ]
+    },
+    {
+      "group": "Wix",
+      "pages": [
+        "merchant/wix/installation"
+      ]
+    },
+    {
+      "group": "Merchant Operations",
       "pages": [
           "merchant/how-and-why/serial-number-recording",
-          {
-            "group": "Price point solutions",
-            "pages": [
-              "merchant/how-and-why/price-point-solution/creating-draft-orders"
-            ]
-          },
-          "merchant/how-and-why/offline-registration",
-          "merchant/how-and-why/woocommerce-hide-products"
+          "merchant/how-and-why/price-point-solution",
+          "merchant/how-and-why/offline-registration"
       ]
     }
   ],
