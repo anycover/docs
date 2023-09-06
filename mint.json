@@ -35,7 +35,11 @@
     }, 
     {
       "group": "Installation",
-      "pages": ["merchant/installation/shopify-plugin", "merchant/installation/woocommerce-plugin"]
+      "pages": [
+        "merchant/installation/shopify-plugin", 
+        "merchant/installation/woocommerce-plugin",
+        "merchant/installation/wix-plugin"
+      ]
     },
     {
       "group": "How and Why",
@@ -47,7 +51,8 @@
               "merchant/how-and-why/price-point-solution/creating-draft-orders"
             ]
           },
-          "merchant/how-and-why/offline-registration"
+          "merchant/how-and-why/offline-registration",
+          "merchant/how-and-why/woocommerce-hide-products"
       ]
     }
   ],
